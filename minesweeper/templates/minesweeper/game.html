@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Minesweeper</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'minesweeper/minesweeper.css' %}" type="text/css" media="all">
+        <script type="text/javascript">
+            let grid = {{ game_grid }};
+            let num_of_rows = {{ num_of_rows }};
+            let num_of_cols = {{ num_of_cols }};
+            let num_of_bombs = {{ num_of_bombs }};
+        </script>
+        <script type="text/javascript" src="{% static 'minesweeper/minesweeper.js' %}" defer></script>
+    </head>
+    <body>
+        <div id="box">
+            <h2>MINESWEEPER!</h2><hr><br><br>
+                <div id="game-parameters">
+                    <h3>Number of rows: {{ num_of_rows }}</h3>
+                    <h3>Number of columns: {{ num_of_cols }}</h3>
+                    <h3>Number of bombs: {{ num_of_bombs }}</h3>
+                </div>
+                <div id="game-instructions">
+                    <h3>Instructions: Shift-Click to set Flags, Click to Reveal.</h3>
+                    <h3>Win Condition: Every bomb on the map has a flag on it</h3>
+                </div>
+                <div id="field"></div>
+                <br>
+            <div id="win" style="display: none;">
+                <h3>You won!</h3>
+                <button id="new-game-button" type="button" onclick="reload()">Start Again</button>
+            </div>
+            <div id="lost" style="display: none;">
+                <h3>You got bombed!</h3>
+                <button id="new-game-button" type="button" onclick="reload()">Start Again</button>
+            </div>
+        </div>
+    </body>
+</html>

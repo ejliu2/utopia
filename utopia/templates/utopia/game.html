@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Utopia</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'utopia/utopia.css' %}" type="text/css" media="all">
+        <script type="text/javascript">
+            let world_grid = {{ game_grid }};
+            let num_of_rows = {{ num_of_rows }};
+            let num_of_cols = {{ num_of_cols }};
+        </script>
+        <script type="text/javascript" src="{% static 'utopia/utopia.js' %}" defer></script>
+    </head>
+    <body>
+        <div id="box">
+            <h2>UTOPIA!</h2><hr><br>
+                <div id="game-instructions">
+                    <h3>Instructions: Build buildings, gather food and increase your score!</h3>
+                    <h3>Win Condition: None! You get to play for 50 turns!</h3>
+                </div>
+                <div id="stats">
+                    <h3 id="population">Population: 0</h3>
+                    <h3 id="happiness">Happiness: 0</h3>
+                    <h3 id="food">Food: 5</h3>
+                    <h3 id="gold">Gold: 100</h3>
+                    <h3 id="next_population">Next Population at Food: 6</h3>
+                </div>
+                <div id="turn-stats">
+                    <h3 id="turn">Turn: 1</h3>
+                </div>
+                <div id="score-stats">
+                    <h3 id="score">Score: 0</h3>
+                </div>
+                <div id="annoucements" style="display: none;">
+                    <h3>Oh no! An Earthquake has struck!</h3>
+                </div>
+                <div id="field"></div>
+                <br>
+                <div id="build-buttons">
+                    <button id="farm-build-button" type='button' onclick="setBuildFlag('farm')">🌽 cost: 50</button>
+                    <button id="house-build-button" type='button' onclick="setBuildFlag('house')">🏠 cost: 50</button>
+                    <button id="stadium-build-button" type='button' onclick="setBuildFlag('stadium')">🏟️ cost: 50</button>
+                    <button id="fishing-boat-build-button" type='button' onclick="setBuildFlag('fishing_boat')">⛵ cost: 50</button>
+                    <button id="gun-boat-build-button" type='button' onclick="setBuildFlag('gun_boat')">🚤 cost: 50</button>
+                </div>
+                <div id="next-turn">
+                    <button id="next-turn-button" type='button' onclick="update()">Next Turn</button>
+                </div>
+            <div id="lost" style="display: none;">
+                <h3>Oh no! There is no one left to rebuild the island!</h3>
+                <button id="new-game-button" type="button" onclick="reload()">Start Again</button>
+            </div>
+        </div>
+    </body>
+</html>

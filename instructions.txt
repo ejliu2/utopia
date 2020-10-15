@@ -1,0 +1,13 @@
+# Instructions for SWIG
+
+http://www.swig.org/Doc4.0/SWIGDocumentation.html#Library_stl_cpp_library
+https://stackoverflow.com/questions/19522363/compiling-swig-wrapper-for-python-in-windows
+swig -c++ -python minesweeper_grid.i    // Produces minesweeper_grid.py and minesweeper_grid_wrap.cxx
+g++ -fPIC -c minesweeper_grid.cpp       // Produces minesweeper_grid.o
+g++ -fPIC -c minesweeper_grid_wrap.cxx -I/usr/include/python3.7     // Produces minesweeper_grid_wrap.o (note:python3.7 can be replaced by python3.x where x is the version installed)
+g++ -shared minesweeper_grid.o minesweeper_grid_wrap.o -o _minesweeper_grid.so      // Produces _minesweeper_grid.so
+
+swig -c++ -python utopia_grid.i
+g++ -fPIC -c utopia_grid.cpp
+g++ -fPIC -c utopia_grid_wrap.cxx -I/usr/include/python3.7
+g++ -shared utopia_grid.o utopia_grid_wrap.o -o _utopia_grid.so

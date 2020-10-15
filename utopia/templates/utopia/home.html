@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Utopia Home</title>
+</head>
+<body>
+    <h1>Utopia Game Rules</h1>
+    <h2>Win Conditions</h2>
+    <h3>There are no win conditions! Play for 50 turns!</h3>
+    <h3>Achieve the high score! The score is determined cumulatively every turn based on current population * current happiness</h3>
+    <h2>Buildings and Ships</h2>
+    <h3>Construction (🏗️): something is currently building in this spot. Nothing else can be built here</h3>
+    <h3>Farms (🌽): generate income when they receive rain (🌧️)! Currently generates 50 gold when it rains</h3>
+    <h3>Houses (🏠): boosts population cap by 1, your population cannot exceed the number of houses</h3>
+    <h3>Stadiums (🏟️): increases happiness by 1</h3>
+    <h3>Fishing Boats (⛵): fishes fish (🐟) in the sea! Icon changes to fishing (🎣) when you land on a fish. Food is increase by 2 if the boat is fishing at the END of the turn</h3>
+    <h3>Gun Boats (🚤): destroys pirate ships (🏴‍☠️) when they land on them!</h3>
+    <h3>Harbours (⚓): only one in the game (right now). Only place that builds boats (one at a time)</h3>
+    <h2>Enemies and Natural Disasters</h2>
+    <h3>Earthquakes can happen. Buildings have a chance to be destroyed (💥). You can rebuild on a destroyed building immediately.</h3>
+    <h3>Pirate Ships (🏴‍☠️) destroy fishing boats (⛵)! They can be destroyed by gun boats (🚤)</h3>
+    <h2>Other</h2>
+    <h3>Pirate ships may not move at the moment</h3>
+    <h3>Numbers may not be balanced at the moment</h3>
+    <h2>Hints</h2>
+    <h3>Make sure to build farms (🌽)! They are the only way to make money to build more stuff.</h3>
+
+
+    <form id="form" action="/utopia/game/" method="post">
+         {% csrf_token %}
+        <div id="buttonArea">
+            <button class="submitButtons" id="submitButton" type="submit"> Start Game! </button>
+        </div>
+    </form>
+</body>
+</html>

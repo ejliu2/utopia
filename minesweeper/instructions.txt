@@ -1,0 +1,6 @@
+// https://github.com/swig/swig/wiki/FAQ#shared-libraries
+swig -python minesweeper.i
+gcc -c `python-config --cflags` minesweeper.c minesweeper_wrap.c
+
+// https://stackoverflow.com/questions/3065649/compiling-a-library-for-ruby-with-swig-on-mac-os-x
+gcc -bundle -flat_namespace -undefined suppress minesweeper.o minesweeper_wrap.o -o _minesweeper.so
